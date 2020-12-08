@@ -22,7 +22,7 @@ const App = () => {
       user.password === ""
     ) {
       Seterrormsg("All fields are mandatory");
-    } else if (!user.name.match(/^[a-zA-Z_]*$/)) {
+    } else if (!user.name.match(/^[a-zA-Z0-9_ ]*$/)) {
       Seterrormsg("Name is not alphanumeric");
     } else if (!user.email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]/)) {
       Seterrormsg("Email must contain @");
@@ -38,13 +38,9 @@ const App = () => {
       Seterrormsg("Password must contain atleast 6 letters");
     } else {
       // Setopen(true);
-
-      Seterrormsg(
-        `Hello ${user.email.substring(0, user.email.lastIndexOf("@"))}`
-      );
+      Seterrormsg(`Hello ${user.name}`);
     }
   };
-
   return (
     <div id="main">
       Name:{""}
